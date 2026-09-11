@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restock Predictor — Quick Commerce Tracking</title>
+  <meta name="description" content="Track your quick-commerce purchases and predict when items need restocking. Powered by consumption pattern analysis.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ===== Hero ===== -->
+    <header class="hero">
+      <h1 class="hero__title">📦 Restock Predictor</h1>
+      <p class="hero__subtitle">
+        Your quick-commerce purchases, tracked &amp; predicted.
+        Never run out of essentials again.
+      </p>
+    </header>
+
+    <!-- ===== Stats Bar ===== -->
+    <section class="stats-bar" id="stats-bar" aria-label="Summary statistics">
+      <div class="stat-card stat-card--accent">
+        <div class="stat-card__value" id="stat-items">—</div>
+        <div class="stat-card__label">Items Tracked</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__value" id="stat-orders">—</div>
+        <div class="stat-card__label">Orders Synced</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__value" id="stat-due-soon">—</div>
+        <div class="stat-card__label">Due This Week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__value" id="stat-overdue">—</div>
+        <div class="stat-card__label">Overdue</div>
+      </div>
+    </section>
+
+    <!-- ===== Restock Timeline ===== -->
+    <section aria-label="Restock predictions">
+      <div class="section-header">
+        <h2 class="section-header__title">
+          <span class="section-header__icon">🔔</span>
+          Restock Timeline
+          <span class="section-header__badge" id="restock-count">0 items</span>
+        </h2>
+        <div class="filter-tabs" id="filter-tabs">
+          <button class="filter-tab filter-tab--active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="urgent">Urgent</button>
+          <button class="filter-tab" data-filter="soon">This Week</button>
+          <button class="filter-tab" data-filter="ok">Later</button>
+        </div>
+      </div>
+
+      <div class="restock-grid" id="restock-grid">
+        <div class="loading-state" id="loading-restock">
+          <div class="loading-spinner"></div>
+          <span>Loading predictions…</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Consumption History ===== -->
+    <section class="history-section" aria-label="Consumption history">
+      <div class="section-header">
+        <h2 class="section-header__title">
+          <span class="section-header__icon">📊</span>
+          Consumption History
+        </h2>
+      </div>
+
+      <div class="history-table-wrap">
+        <table class="history-table" id="history-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Times Bought</th>
+              <th>Avg Interval</th>
+              <th>Purchase Frequency</th>
+              <th>Last Ordered</th>
+            </tr>
+          </thead>
+          <tbody id="history-body">
+            <tr>
+              <td colspan="5">
+                <div class="loading-state">
+                  <div class="loading-spinner"></div>
+                  <span>Loading history…</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__sync">
+        Last sync: <span class="footer__sync-time" id="last-sync">—</span>
+        &nbsp;·&nbsp; Auto-refreshes every 5 min
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
