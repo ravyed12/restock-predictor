@@ -1,9 +1,11 @@
 name: Sync Orders & Predict Restocks
 
 on:
+  push:
+    branches: [ master, main ]
   schedule:
-    - cron: '0 */6 * * *'    # every 6 hours (UTC)
-  workflow_dispatch: {}       # manual trigger from Actions tab
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: read
